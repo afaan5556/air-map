@@ -3,5 +3,5 @@
 end
 
 12.times do
-  AirQual.create(user_id: (rand(3)+1))
+  Airmap.create(user_id: (rand(3)+1))
 end

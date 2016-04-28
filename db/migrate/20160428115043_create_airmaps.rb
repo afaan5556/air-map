@@ -1,6 +1,6 @@
-class CreateAirQuals < ActiveRecord::Migration
+class CreateAirmaps < ActiveRecord::Migration
   def change
-    create_table :air_quals do |t|
+    create_table :airmaps do |t|
       t.integer :user_id
       t.string :address
       t.text :report

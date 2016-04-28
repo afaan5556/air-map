@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :email, :password, :user_name, presence: true
   validates :user_name, :email, uniqueness: true
 
-  has_many :air_quals
+  has_many :airmaps
 
   def password
     @password ||= Password.new(password_hash)

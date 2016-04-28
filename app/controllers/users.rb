@@ -18,22 +18,22 @@ get '/users/:id' do
   end
 end
 
-get '/users/:user_id/air_quals/new' do
+get '/users/:user_id/air_maps/new' do
   if current_user
     @user = User.find(params[:user_id])
-    erb :'/air_quals/new'
+    erb :'/air_maps/new'
   else
     redirect '/login'
   end
 end
 
 # get params from a from to create a specific user 'x' (say post) and redirect accordingly
-post '/users/:user_id/air_quals' do
+post '/users/:user_id/air_maps' do
   if current_user
-    lat_lon = address_convert(params[:address])
+    lat_lon = convert_address(params[:address])
     api_response = call_api(lat_lon)
-
-    redirect "/users/#{params[:user_id]}"
+    @air_map = AirQual.new(user_id: session[:user_id], address: params[:address], report: api_response)
+    redirect "/users/#{session[:user_id]}/air_maps/#{@air_map.id}"
   else
     redirect '/login'
   end
