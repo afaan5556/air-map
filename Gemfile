@@ -13,6 +13,8 @@ gem 'activerecord', '~>4.2.0'
 gem 'pry'
 gem 'rake'
 gem 'bcrypt'
+gem 'geokit'
+gem 'httparty'
 
 gem 'rack', '1.5.2'
 gem 'shotgun'

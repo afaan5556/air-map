@@ -16,6 +16,8 @@ require 'active_record'
 require 'logger'
 require 'pry'
 require 'bcrypt'
+require 'geokit'
+require 'httparty'
 
 require 'sinatra'
 require "sinatra/reloader" if development?

@@ -18,19 +18,29 @@ get '/users/:id' do
   end
 end
 
+get '/users/:user_id/air_quals/new' do
+  if current_user
+    @user = User.find(params[:user_id])
+    erb :'/air_quals/new'
+  else
+    redirect '/login'
+  end
+end
 
+# get params from a from to create a specific user 'x' (say post) and redirect accordingly
+post '/users/:user_id/air_quals' do
+  if current_user
+    lat_lon = address_convert(params[:address])
+    api_response = call_api(lat_lon)
+
+    redirect "/users/#{params[:user_id]}"
+  else
+    redirect '/login'
+  end
+end
 
 
 # ______________________________________________________
-
-# get '/users/:id/airmaps/new' do
-#   if current_user
-#     @user = User.find(params[:id])
-#     erb :'/airmaps/new'
-#   else
-#     redirect '/login'
-#   end
-# end
 
 # # get params from a from to create a specific user 'x' (say post) and redirect accordingly
 # post '/users/:id/airmaps' do
