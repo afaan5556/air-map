@@ -5,7 +5,7 @@ end
 post '/users/new' do
   user = User.create(user_name: params[:user_name], email: params[:email], password: params[:password])
   session[:user_id] = user.id
-  redirect "/"
+  redirect "/users/#{user.id}"
 end
 
 # Show specific users page if logged in, redirect otherwise

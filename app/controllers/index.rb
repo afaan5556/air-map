@@ -11,7 +11,7 @@ post '/login' do
   if user
     if user.authenticate(params[:email], params[:password])
       session[:user_id] = user.id
-      redirect "/"
+      redirect "/users/#{user.id}"
     else
       redirect '/login'
     end
