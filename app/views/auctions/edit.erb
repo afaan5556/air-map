@@ -1,0 +1,46 @@
+<p class="collection-header"><h4>Edit Auction</h4></p>
+
+  <div class="row">
+    <form class="col s12" method="post" action="/users/<%= @user.id %>/auctions/<%= @auction.id %>">
+    <input name="_method" type="hidden" value="put" />
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="name" type="text" class="validate">
+          <label for="name">Item Name</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="start_date" type="text" class="validate">
+          <label for="start_date">Auction Start Date</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="stop_date" type="text" class="validate">
+          <label for="stop_date">Auction End Date</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="price" type="text" class="validate">
+          <label for="price">Item Price</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" name="description" class="materialize-textarea"></textarea>
+            <label for="description">Item Description</label>
+          </div>
+        </div>
+      </div>
+
+      <input type="submit" class="waves-effect waves-light btn" value="Submit Changes">
+
+    </form>
+  </div>
