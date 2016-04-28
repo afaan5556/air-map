@@ -1,6 +1,5 @@
 get '/' do
-  # @auctions = Auction.all
-  @active_auctions = Auction.where("start <= :start_date AND stop >= :end_date",{start_date: DateTime.now, end_date: DateTime.now})
+
   erb :index
 end
 

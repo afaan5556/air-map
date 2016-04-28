@@ -18,72 +18,72 @@ get '/users/:id' do
   end
 end
 
+get '/users/:id/auctions/new' do
+  if current_user
+    @user = User.find(params[:id])
+    erb :'/auctions/new'
+  else
+    redirect '/login'
+  end
+end
+
+# get params from a from to create a specific user 'x' (say post) and redirect accordingly
+post '/users/:id/auctions' do
+  if current_user
+    auction = Auction.create(user_id: params[:id], name: params[:name], description: params[:description], start: params[:start_date], stop: params[:stop_date], price: params[:price])
+    redirect "/users/#{params[:id]}"
+  else
+    redirect '/login'
+  end
+end
+
+
+get '/users/:id/auctions/:auction_id' do
+  if current_user
+    @user = User.find(params[:id])
+    @auction = Auction.find(params[:auction_id])
+    erb :'/auctions/show'
+  else
+    redirect '/login'
+  end
+end
+
+# show form to edit an 'x' by user (say a post)
+get '/users/:id/auctions/:auction_id/edit' do
+    if current_user
+      @user = User.find(params[:id])
+      @auction = Auction.find(params[:auction_id])
+      erb :'/auctions/edit'
+    else
+      redirect '/login'
+    end
+end
+
+# Get data from a form to edit a certain users specific 'x' (say post) checking if logged in and redirecting accordingly
+put '/users/:id/auctions/:auction_id' do
+    if current_user
+      auction = Auction.find(params[:auction_id])
+      auction.update_attributes(user_id: params[:id], name: params[:name], description: params[:description], start: params[:start_date], stop: params[:stop_date], price: params[:price])
+      redirect "/users/#{params[:id]}"
+    else
+      redirect '/login'
+    end
+end
+
+# Delete a certain users specific 'x' (say post) checking if logged in and redirecting accordingly
+delete '/users/:id/auctions/:auction_id' do
+    if current_user
+      auction = Auction.find(params[:auction_id])
+      auction.destroy
+      redirect "/users/#{params[:id]}/auctions"
+    else
+      redirect '/login'
+    end
+end
 
 
 
 # ______________________________________________________
-# get '/users/:id/auctions/new' do
-#   if current_user
-#     @user = User.find(params[:id])
-#     erb :'/auctions/new'
-#   else
-#     redirect '/login'
-#   end
-# end
-
-# # get params from a from to create a specific user 'x' (say post) and redirect accordingly
-# post '/users/:id/auctions' do
-#   if current_user
-#     auction = Auction.create(user_id: params[:id], name: params[:name], description: params[:description], start: params[:start_date], stop: params[:stop_date], price: params[:price])
-#     redirect "/users/#{params[:id]}"
-#   else
-#     redirect '/login'
-#   end
-# end
-
-
-# get '/users/:id/auctions/:auction_id' do
-#   if current_user
-#     @user = User.find(params[:id])
-#     @auction = Auction.find(params[:auction_id])
-#     erb :'/auctions/show'
-#   else
-#     redirect '/login'
-#   end
-# end
-
-# # show form to edit an 'x' by user (say a post)
-# get '/users/:id/auctions/:auction_id/edit' do
-#     if current_user
-#       @user = User.find(params[:id])
-#       @auction = Auction.find(params[:auction_id])
-#       erb :'/auctions/edit'
-#     else
-#       redirect '/login'
-#     end
-# end
-
-# # Get data from a form to edit a certain users specific 'x' (say post) checking if logged in and redirecting accordingly
-# put '/users/:id/auctions/:auction_id' do
-#     if current_user
-#       auction = Auction.find(params[:auction_id])
-#       auction.update_attributes(user_id: params[:id], name: params[:name], description: params[:description], start: params[:start_date], stop: params[:stop_date], price: params[:price])
-#       redirect "/users/#{params[:id]}"
-#     else
-#       redirect '/login'
-#     end
-# end
-
-# # Delete a certain users specific 'x' (say post) checking if logged in and redirecting accordingly
-# delete '/users/:id/auctions/:auction_id' do
-#     if current_user
-#       auction = Auction.find(params[:auction_id])
-#       auction.destroy
-#       redirect "/users/#{params[:id]}/auctions"
-#     else
-#       redirect '/login'
-#     end
-# end
 
 
 # # Show specific user edit form if logged in, redirect otherwise
