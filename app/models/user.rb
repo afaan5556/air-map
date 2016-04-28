@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
   include BCrypt
   # Remember to create a migration!
-  has_many :bids
-  has_many :auctions
 
   validates :email, :password, :user_name, presence: true
   validates :user_name, :email, uniqueness: true
