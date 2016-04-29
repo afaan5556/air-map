@@ -15,7 +15,6 @@ gem 'rake'
 gem 'bcrypt'
 gem 'geokit'
 gem 'httparty'
-gem 'openssl'
 gem 'certified'
 
 gem 'rack', '1.5.2'
