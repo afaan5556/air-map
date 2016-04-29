@@ -1,29 +1,33 @@
 <div class="row">
-  <div class="col s5">
+  <div class="col s6">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
-        <span class="card-title">New Air Quality Request</span>
+        <span class="card-title">New airMap Request</span>
         <p>Enter your street address in the following format:</p>
         <p>'140 Market St, San Francisco, CA'</p>
       </div>
 
+      <form method="post" action="/users/<%= @user.id %>/airmaps">
+        <ul class="collection">
+
+          <li class="collection-item">
+
+            <div class="row">
+            <div class="input-field">
+                <input name="address" type="text" class="validate">
+                <label for="address">Street Address</label>
+              </div>
+            </div>
+          </li>
+
+          <input type="submit" class="waves-effect waves-light btn" value="Request it!">
+
+        </ul>
+      </form>
+
     </div>
   </div>
 </div>
-
-  <div class="row">
-    <form id="new_air" class="col s5" method="post" action="/users/<%= @user.id %>/airmaps">
-      <div class="row">
-        <div class="input-field">
-          <input name="address" type="text" class="validate">
-          <label for="address">Street Address</label>
-        </div>
-      </div>
-
-      <input type="submit" class="waves-effect waves-light btn" value="Submit">
-
-    </form>
-  </div>
 
 
 

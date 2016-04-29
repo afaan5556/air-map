@@ -16,13 +16,12 @@
             </div>
 
           <ul class="collection">
-            <li class="collection-item">Alvin</li>
-            <li class="collection-item">Alvin</li>
-            <li class="collection-item">Alvin</li>
-            <li class="collection-item">Alvin</li>
+            <% @user.airmaps.each do |airmap| %>
+              <li class="collection-item">airMap ID: <%= airmap.id %></li>
+            <% end %>
           </ul>
 
-        <a href="/users/<%= @user.id %>/air_maps/new" class="waves-effect waves-light btn">+ Add airMap</a>
+        <a href="/users/<%= @user.id %>/airmaps/new" class="waves-effect waves-light btn">+ Add airMap</a>
  </div>
 </div>
 </div>
