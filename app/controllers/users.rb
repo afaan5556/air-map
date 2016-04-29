@@ -76,6 +76,16 @@ put '/users/:id' do
   end
 end
 
+get '/users/:id/delete' do
+  if current_user
+    user = current_user
+    user.destroy
+    redirect '/'
+  else
+    redirect '/login'
+  end
+
+end
 
 # ______________________________________________________
 
