@@ -1,0 +1,23 @@
+.signup {
+    background-image: url("../pexels-photo-88214.jpeg");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+}
+
+.login {
+    background-image: url("../skyline-buildings-new-york-skyscrapers.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+}
+
+.index {
+    background-image: url("../pexels-photo-25349.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+}
+
+
+

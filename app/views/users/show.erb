@@ -1,0 +1,51 @@
+<div class="row">
+</div>
+<div class="row">
+</div>
+
+
+<div class="row">
+  <div class="container">
+
+    <div class="col s12">
+      <div class="card #3949ab indigo darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Profile Page For: <%= @user.user_name.capitalize %></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s6">
+      <div class="card #5e35b1 deep-purple">
+        <div class="card-content white-text">
+          <span class="card-title">My airMaps:</span>
+        </div>
+
+        <ul class="collection">
+          <% @user.airmaps.each do |airmap| %>
+          <li class="collection-item">airMap ID: <%= airmap.id %></li>
+          <% end %>
+        <a href="/users/<%= @user.id %>/airmaps/new" class="waves-effect #1e88e5 blue darken-1 btn">Add airMap</a>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="col s6">
+      <div class="card #5e35b1 deep-purple">
+        <div class="card-content white-text">
+          <span class="card-title">My Profile:</span>
+        </div>
+
+        <ul class="collection">
+          <li class="collection-item">Username: <%= @user.user_name %></li>
+          <li class="collection-item">Email: <%= @user.email %></li>
+          <li class="collection-item">Password: ******** </li>
+
+        <a href="/users/<%= @user.id %>/edit" class="waves-effect #1e88e5 blue darken-1 btn">Edit Profile</a>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
