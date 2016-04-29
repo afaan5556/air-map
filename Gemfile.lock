@@ -26,6 +26,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    certified (1.0.0)
     coderay (1.1.1)
     database_cleaner (1.5.3)
     diff-lcs (1.2.5)
@@ -49,6 +50,7 @@ GEM
     multi_xml (0.5.5)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    openssl (0.2.0)
     pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -104,11 +106,13 @@ DEPENDENCIES
   activesupport (~> 4.2.0)
   bcrypt
   capybara
+  certified
   database_cleaner
   factory_girl
   faker
   geokit
   httparty
+  openssl
   pg
   pry
   rack (= 1.5.2)

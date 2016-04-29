@@ -18,6 +18,8 @@ require 'pry'
 require 'bcrypt'
 require 'geokit'
 require 'httparty'
+require 'openssl'
+require 'certified'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
