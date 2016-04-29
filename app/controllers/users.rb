@@ -35,10 +35,13 @@ post '/users/:user_id/airmaps' do
     lon = lat_lon.split(",")[1]
     api_response = call_api(lat_lon)
 
-    # @airmap = Airmap.create(user_id: session[:user_id], address: params[:address], lat: lat, lon: lon, report: api_response.parsed_response)
-    # puts "****************************"
-    # puts "Airmap is: #{@airmap}"
-    # puts "****************************"
+    @airmap = Airmap.create(user_id: session[:user_id], address: params[:address], lat: lat, lon: lon, report: api_response)
+    puts "****************************"
+    puts "Airmap is: #{@airmap}"
+    puts "Airmap report is: #{@airmap.report}"
+    puts "Airmap report class is: #{@airmap.report.class}"
+    puts "Airmap report country is: #{@airmap.report}"
+    puts "****************************"
     redirect "/users/#{session[:user_id]}"
   else
     redirect '/login'
