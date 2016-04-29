@@ -17,10 +17,6 @@ helpers do
 
     request_string = "http://api.breezometer.com/baqi/?lat=#{lat}&lon=#{lon}&key=#{api_key}"
     response = HTTParty.get(request_string).parsed_response
-    # puts "************************"
-    # puts response.class
-    # puts response.parsed_response.class
-    # puts response.parsed_response['country_name']
-    # puts "************************"
+
   end
 end
