@@ -35,13 +35,24 @@ post '/users/:user_id/airmaps' do
     lon = lat_lon.split(",")[1]
     api_response = call_api(lat_lon)
 
-    @airmap = Airmap.create(user_id: session[:user_id], address: params[:address], lat: lat, lon: lon, report: api_response)
     puts "****************************"
-    puts "Airmap is: #{@airmap}"
-    puts "Airmap report is: #{@airmap.report}"
-    puts "Airmap report class is: #{@airmap.report.class}"
-    puts "Airmap report country is: #{@airmap.report}"
+    puts "apiresponse is: #{api_response}"
+    puts "apiresponse class is: #{api_response.class}"
+    puts "api_response children is #{api_response['random_recommendations']['children']}"
+
     puts "****************************"
+
+    @airmap = Airmap.create(user_id: session[:user_id], address: params[:address], lat: lat, lon: lon)
+    @report = Report.create(airmap_id: @airmap.id, children: api_response['random_recommendations']['children'], sport: api_response['random_recommendations']['sport'], health: api_response['random_recommendations']['health'], inside: api_response['random_recommendations']['inside'], outside: api_response['random_recommendations']['outside'], main: api_response['dominant_pollutant_text']['main'], effects: api_response['dominant_pollutant_text']['effects'], dominant_pollutant_description: api_response['dominant_pollutant_description'])
+    # ,  causes: ['dominant_pollutant_text']['causes']
+
+      puts "****************************"
+      puts "Report is #{@report}"
+      puts "Report children is #{@report.children}"
+      puts "****************************"
+
+
+
     redirect "/users/#{session[:user_id]}"
   else
     redirect '/login'
