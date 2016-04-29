@@ -31,11 +31,11 @@ end
 post '/users/:user_id/airmaps' do
   if current_user
     p "GOT IN HERE!"
-    p params
+    # p params
     lat_lon = convert_address(params[:address])
-    p lat_lon
-    p lat_lon.split(",")[0]
-    p lat_lon.split(",")[1]
+    # p lat_lon
+    # p lat_lon.split(",")[0]
+    # p lat_lon.split(",")[1]
     # api_response = call_api(lat_lon)
     @airmap = Airmap.create(user_id: session[:user_id], address: params[:address])#, report: api_response)
     redirect "/users/#{session[:user_id]}/airmaps/#{@airmap.id}"
@@ -46,6 +46,10 @@ end
 
 get "/users/:user_id/airmaps/:id" do
   if current_user
+    airmap = Airmap.find(params[:id])
+    lat_lon = convert_address(airmap.address)
+    @lat = lat_lon.split(",")[0]
+    @lon = lat_lon.split(",")[1]
     erb :'/airmaps/show'
   else
     redirect '/login'
