@@ -12,8 +12,11 @@ helpers do
   def call_api(location)
     lat = location.split(",")[0]
     lon = location.split(",")[1]
-    key = "4a694c2e3544448baa9d166a4f82332f"
-    request_string = "https://api.breezometer.com/baqi/?lat=#{lat}&lon=#{lon}&key=#{key}"
-    # response = HTTParty.get(request_string)
+    # api_key = "4a694c2e3544448baa9d166a4f82332f"
+    widget_key = "00691e75361e66e8bce2de9ef4698ee5a930b6b2"
+
+    request_string = "https://api.breezometer.com/baqi/\?lat=#{lat}&lon=#{lon}&key=#{widget_key}"
+    p request_string
+    response = HTTParty.get(request_string)
   end
 end
