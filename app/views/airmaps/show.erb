@@ -20,7 +20,7 @@
 
       <i class="large material-icons">announcement</i>
       <h4>Dominant Pollutant</h4>
-      <span class="card-title"><%= @airmap.report['dominant_pollutant_description'] %></span>
+      <span class="card-title"><%= @report.dominant_pollutant_description %></span>
       </div>
     </div>
   </div>
@@ -37,11 +37,11 @@
       <h4>Advisory Messages:</h4>
       <span class="card-title">
         <ul class="collection">
-          <li class="collection-item black-text">Sport: <%= @airmap.report['random_recommendations']['children'] %></li>
-          <li class="collection-item black-text">Health: <%= @airmap.report['random_recommendations']['sport'] %></li>
-          <li class="collection-item black-text">Inside: <%= @airmap.report['random_recommendations']['health'] %></li>
-          <li class="collection-item black-text">Outside: <%= @airmap.report['random_recommendations']['inside'] %></li>
-          <li class="collection-item black-text">Outside: <%= @airmap.report['random_recommendations']['outside'] %></li>
+          <li class="collection-item black-text">Sport: <%= @report.children %></li>
+          <li class="collection-item black-text">Health: <%= @report.sport %></li>
+          <li class="collection-item black-text">Inside: <%= @report.health %></li>
+          <li class="collection-item black-text">Outside: <%= @report.inside %></li>
+          <li class="collection-item black-text">Outside: <%= @report.outside %></li>
         </ul>
       </span>
       </div>
@@ -56,9 +56,9 @@
       <h4>Pollutant Information:</h4>
       <span class="card-title">
         <ul class="collection">
-          <li class="collection-item black-text">Primary Source: <%= @airmap.report['dominant_pollutant_text']['main'] %></li>
-          <li class="collection-item black-text">Primary Source: <%= @airmap.report['dominant_pollutant_text']['effects'] %></li>
-          <li class="collection-item black-text">Primary Source: <%= @airmap.report['dominant_pollutant_text']['causes'] %></li>
+          <li class="collection-item black-text">Primary Source: <%= @report.main %></li>
+          <li class="collection-item black-text">Primary Source: <%= @report.effects %></li>
+          <li class="collection-item black-text">Primary Source: <%= @report.causes %></li>
           <li class="collection-item black-text">Other: ________</li>
           <li class="collection-item black-text">Other: ________</li>
         </ul>
