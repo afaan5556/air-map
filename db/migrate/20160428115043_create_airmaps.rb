@@ -5,7 +5,6 @@ class CreateAirmaps < ActiveRecord::Migration
       t.string :address
       t.float :lat
       t.float :lon
-      t.text :report
 
       t.timestamps
     end

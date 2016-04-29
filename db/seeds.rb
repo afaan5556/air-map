@@ -5,3 +5,8 @@ end
 12.times do
   Airmap.create(user_id: (rand(3)+1))
 end
+
+12.times do |i|
+  i += 1
+  Report.create(airmap_id: i)
+end
