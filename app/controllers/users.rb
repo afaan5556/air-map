@@ -56,7 +56,14 @@ get "/users/:user_id/airmaps/:id" do
   end
 end
 
+get '/users/:id/edit' do
+  if current_user
+    erb :'/users/edit'
+  else
+    redirect 'logout'
+  end
 
+end
 
 # ______________________________________________________
 
