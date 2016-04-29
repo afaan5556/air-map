@@ -18,7 +18,6 @@ require 'pry'
 require 'bcrypt'
 require 'geokit'
 require 'httparty'
-require 'openssl'
 require 'certified'
 
 require 'sinatra'

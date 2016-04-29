@@ -16,7 +16,6 @@ helpers do
     # widget_key = "00691e75361e66e8bce2de9ef4698ee5a930b6b2"
 
     request_string = "https://api.breezometer.com/baqi/?lat=#{lat}&lon=#{lon}&key=#{api_key}"
-    p request_string
     response = HTTParty.get(request_string)
 
   end
