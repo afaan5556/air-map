@@ -31,9 +31,11 @@ end
 post '/users/:user_id/airmaps' do
   if current_user
     lat_lon = convert_address(params[:address])
-    # api_response = call_api(lat_lon)
+    lat = lat_lon.split(",")[0]
+    lon = lat_lon.split(",")[1]
+    api_response = call_api(lat_lon)
 
-    @airmap = Airmap.create(user_id: session[:user_id], address: params[:address], lat: lat_lon.split(",")[0], lon: lat_lon.split(",")[1])#, report: api_response)
+    @airmap = Airmap.create(user_id: session[:user_id], address: params[:address], lat: lat, lon: lon, report: api_response)
     redirect "/users/#{session[:user_id]}"
   else
     redirect '/login'
