@@ -56,7 +56,36 @@ get "/users/:user_id/airmaps/:id" do
   end
 end
 
+get '/users/:id/edit' do
+  if current_user
+    @user = current_user
+    erb :'/users/edit'
+  else
+    redirect 'logout'
+  end
 
+end
+
+put '/users/:id' do
+  if current_user
+    user = current_user
+    user.update_attributes(user_name: params[:user_name], email: params[:email], password: params[:password])
+    erb :'/users/show'
+  else
+    redirect '/login'
+  end
+end
+
+get '/users/:id/delete' do
+  if current_user
+    user = current_user
+    user.destroy
+    redirect '/'
+  else
+    redirect '/login'
+  end
+
+end
 
 # ______________________________________________________
 

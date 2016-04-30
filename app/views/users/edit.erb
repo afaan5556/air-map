@@ -1,0 +1,59 @@
+<div class="row">
+  </div>
+  <div class="row">
+  </div>
+  <div class="row">
+  </div>
+  <div class="row">
+  </div>
+  <div class="row">
+  </div>
+
+
+  <div class="row">
+    <div class="container">
+
+
+      <div class="col s6 offset-s3">
+      <div class="card #3949ab indigo darken-1">
+
+
+          <div class="card-content white-text">
+            <span class="card-title">Edit Profile:</span>
+          </div>
+
+          <form method="post" action="/users/<%= @user.id %>">
+            <input name="_method" type="hidden" value="put"/>
+            <ul class="collection">
+
+              <li class="collection-item">
+                <div class="row">
+                  <div class="input-field">
+                    <input name="user_name" type="text" class="validate">
+                    <label for="user_name">User Name</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field">
+                    <input name="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field">
+                    <input name="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                  </div>
+                </div>
+              </li>
+
+              <input type="submit" class="waves-effect #1e88e5 blue darken-1 btn" value="Update Profile!">
+
+            </ul>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
